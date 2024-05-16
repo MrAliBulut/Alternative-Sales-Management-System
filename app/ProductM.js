@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { icons, images, mock_products, COLORS, SHADOWS } from "../constants";
-import { Product } from "../components";
+import { Product, NavBar } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
@@ -26,7 +26,7 @@ const ProductM = () => {
       <SafeAreaView style={{ alignItems: "center" }}>
         <View
           style={{
-            marginTop: wHeight * 0.12,
+            marginTop: wHeight * 0.08,
             alignItems: "center",
             justifyContent: "center",
             ...SHADOWS.medium,
@@ -39,8 +39,9 @@ const ProductM = () => {
         <ScrollView
           style={{
             marginTop: wHeight * 0.05,
-            marginBottom: wHeight * 0.29,
+            marginBottom: wWidth * 0.06,
             width: wWidth * 0.95,
+            height: wHeight * 0.565,
             backgroundColor: "transparent",
           }}
         >
@@ -94,6 +95,7 @@ const ProductM = () => {
             ></View>
           </Pressable>
         </ScrollView>
+        <NavBar current="rate"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );

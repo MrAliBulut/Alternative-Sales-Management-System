@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { icons, images, COLORS, SHADOWS } from "../constants";
-import { TxtBox, Button } from "../components";
+import { TxtBox, Button, NavBar } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
@@ -95,7 +95,7 @@ const home = () => {
                 }}
               >
                 <Image
-                  source={images.graph}
+                  source={images.offer}
                   style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
                 ></Image>
               </View>
@@ -164,6 +164,8 @@ const home = () => {
             </View>
           </View>
         </View>
+
+        <NavBar current="home"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );

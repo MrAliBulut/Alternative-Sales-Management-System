@@ -5,6 +5,7 @@ import graph from "../assets/images/graph.png";
 import offer from "../assets/images/offer.png";
 import rate from "../assets/images/rate.png";
 
+
 export default {
   wallpaper,
   myPP,

@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import { icons, images, COLORS, SHADOWS } from "../constants";
-import { TxtBox, Button } from "../components";
+import { TxtBox, Button, NavBar } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
@@ -27,7 +27,7 @@ const OfferM = () => {
       style={{ width: wWidth, height: wHeight }}
     >
       <SafeAreaView style={{ alignItems: "center" }}>
-        <View style={{ marginTop: wHeight * 0.12, ...SHADOWS.medium }}>
+        <View style={{ marginTop: wHeight * 0.08, ...SHADOWS.medium }}>
           <Text style={{ fontSize: wWidth * 0.08, fontWeight: "bold" }}>
             Current Offers
           </Text>
@@ -37,6 +37,7 @@ const OfferM = () => {
           horizontal={true}
           style={{
             marginTop: wHeight * 0.05,
+            marginBottom: wWidth * 0.06,
             width: wWidth * 0.9,
             height: wHeight * 0.6,
             backgroundColor: COLORS.doneView,
@@ -289,6 +290,8 @@ const OfferM = () => {
             ></View>
           </Pressable>
         </ScrollView>
+
+        <NavBar current="offer"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );
