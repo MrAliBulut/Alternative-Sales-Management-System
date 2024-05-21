@@ -6,15 +6,16 @@ import {
   Dimensions,
   SafeAreaView,
   ScrollView,
+  Button,
 } from "react-native";
 import React from "react";
 import { icons, images, mock_products, COLORS, SHADOWS } from "../constants";
-import { Product, NavBar } from "../components";
+import { Product } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
-const ProductM = () => {
+const ProductM = ({ navigation }) => {
   const onAddProductPressed = () => {
     console.warn("AddProductPressed");
   };
@@ -95,7 +96,6 @@ const ProductM = () => {
             ></View>
           </Pressable>
         </ScrollView>
-        <NavBar current="rate"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );

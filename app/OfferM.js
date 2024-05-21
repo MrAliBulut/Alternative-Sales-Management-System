@@ -9,12 +9,12 @@ import {
   ScrollView,
 } from "react-native";
 import { icons, images, COLORS, SHADOWS } from "../constants";
-import { TxtBox, Button, NavBar } from "../components";
+import { TxtBox, Button } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
-const OfferM = () => {
+const OfferM = ({ navigation }) => {
   const onEditOfferPressed = () => {
     console.warn("Edit Pressed");
   };
@@ -290,8 +290,6 @@ const OfferM = () => {
             ></View>
           </Pressable>
         </ScrollView>
-
-        <NavBar current="offer"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );

@@ -8,12 +8,12 @@ import {
 } from "react-native";
 import React from "react";
 import { icons, images, COLORS, SHADOWS } from "../constants";
-import { NavBar, Employee } from "../components";
+import { Employee } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
-const EmployeeM = () => {
+const EmployeeM = ({ navigation }) => {
   return (
     <ImageBackground
       source={images.wallpaper}
@@ -54,7 +54,6 @@ const EmployeeM = () => {
           <Employee></Employee>
         </ScrollView>
         <View></View>
-        <NavBar current="employee"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );

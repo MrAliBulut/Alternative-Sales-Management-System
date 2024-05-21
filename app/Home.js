@@ -8,12 +8,12 @@ import {
   ImageBackground,
 } from "react-native";
 import { icons, images, COLORS, SHADOWS } from "../constants";
-import { TxtBox, Button, NavBar } from "../components";
+import { TxtBox, Button } from "../components";
 
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
-const home = () => {
+const Home = ({ navigation }) => {
   return (
     <ImageBackground
       source={images.wallpaper}
@@ -23,6 +23,7 @@ const home = () => {
         <View
           style={{
             width: wWidth * 0.9,
+            height: wHeight * 0.05,
             backgroundColor: COLORS.doneView,
             flexDirection: "row",
             justifyContent: "space-between",
@@ -30,7 +31,7 @@ const home = () => {
           }}
         >
           <Text style={{ fontSize: wWidth * 0.065, fontWeight: "bold" }}>
-            Auth Level
+            Auth level
           </Text>
           <Text style={{ fontSize: wWidth * 0.065, fontWeight: "bold" }}>
             User name
@@ -39,136 +40,144 @@ const home = () => {
 
         <View
           style={{
-            marginTop: wHeight * 0.1,
-            height: wHeight * 0.6,
-            width: wWidth * 0.9,
-            backgroundColor: COLORS.doneView,
+            height: wHeight * 0.8,
+            justifyContent: "space-between",
+            backgroundColor: "transparent",
           }}
         >
           <View
             style={{
-              height: wHeight * 0.3,
+              height: wHeight * 0.6,
+              marginTop: wHeight * 0.05,
               width: wWidth * 0.9,
               backgroundColor: COLORS.doneView,
-              flexDirection: "row",
             }}
           >
             <View
               style={{
-                width: wWidth * 0.45,
+                height: wHeight * 0.3,
+                width: wWidth * 0.9,
                 backgroundColor: COLORS.doneView,
-                justifyContent: "space-evenly",
-                alignItems: "center",
+                flexDirection: "row",
               }}
             >
               <View
-                source={images.graph}
                 style={{
-                  width: wWidth * 0.35,
-                  height: wHeight * 0.2,
-                  justifyContent: "center",
+                  width: wWidth * 0.45,
+                  backgroundColor: COLORS.doneView,
+                  justifyContent: "space-evenly",
                   alignItems: "center",
                 }}
               >
-                <Image
-                  source={images.rate}
-                  style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
-                ></Image>
-              </View>
-              <Text style={{ fontSize: wWidth * 0.04 }}>Rate Management</Text>
-            </View>
-            <View
-              style={{
-                width: wWidth * 0.45,
-                backgroundColor: COLORS.doneView,
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
-              <View
-                source={images.offer}
-                style={{
-                  width: wWidth * 0.35,
-                  height: wHeight * 0.2,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Image
-                  source={images.offer}
-                  style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
-                ></Image>
-              </View>
-              <Text style={{ fontSize: wWidth * 0.04 }}>Offer Management</Text>
-            </View>
-          </View>
-          <View
-            style={{
-              height: wHeight * 0.3,
-              width: wWidth * 0.9,
-              backgroundColor: COLORS.doneView,
-              flexDirection: "row",
-            }}
-          >
-            <View
-              style={{
-                width: wWidth * 0.45,
-                backgroundColor: COLORS.doneView,
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
-              <View
-                source={images.graph}
-                style={{
-                  width: wWidth * 0.35,
-                  height: wHeight * 0.2,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Image
+                <View
                   source={images.graph}
-                  style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
-                ></Image>
+                  style={{
+                    width: wWidth * 0.35,
+                    height: wHeight * 0.2,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    source={images.rate}
+                    style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
+                  ></Image>
+                </View>
+                <Text style={{ fontSize: wWidth * 0.04 }}>Rate Management</Text>
               </View>
-              <Text style={{ fontSize: wWidth * 0.04 }}>
-                Graph and Statistics
-              </Text>
-            </View>
-            <View
-              style={{
-                width: wWidth * 0.45,
-                backgroundColor: COLORS.doneView,
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
               <View
-                source={images.graph}
                 style={{
-                  width: wWidth * 0.35,
-                  height: wHeight * 0.2,
-                  justifyContent: "center",
+                  width: wWidth * 0.45,
+                  backgroundColor: COLORS.doneView,
+                  justifyContent: "space-evenly",
                   alignItems: "center",
                 }}
               >
-                <Image
-                  source={images.employee}
-                  style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
-                ></Image>
+                <View
+                  source={images.offer}
+                  style={{
+                    width: wWidth * 0.35,
+                    height: wHeight * 0.2,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    source={images.offer}
+                    style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
+                  ></Image>
+                </View>
+                <Text style={{ fontSize: wWidth * 0.04 }}>
+                  Offer Management
+                </Text>
               </View>
-              <Text style={{ fontSize: wWidth * 0.04 }}>
-                Employee Management
-              </Text>
+            </View>
+            <View
+              style={{
+                height: wHeight * 0.3,
+                width: wWidth * 0.9,
+                backgroundColor: COLORS.doneView,
+                flexDirection: "row",
+              }}
+            >
+              <View
+                style={{
+                  width: wWidth * 0.45,
+                  backgroundColor: COLORS.doneView,
+                  justifyContent: "space-evenly",
+                  alignItems: "center",
+                }}
+              >
+                <View
+                  source={images.graph}
+                  style={{
+                    width: wWidth * 0.35,
+                    height: wHeight * 0.2,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    source={images.graph}
+                    style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
+                  ></Image>
+                </View>
+                <Text style={{ fontSize: wWidth * 0.04 }}>
+                  Graph and Statistics
+                </Text>
+              </View>
+              <View
+                style={{
+                  width: wWidth * 0.45,
+                  backgroundColor: COLORS.doneView,
+                  justifyContent: "space-evenly",
+                  alignItems: "center",
+                }}
+              >
+                <View
+                  source={images.graph}
+                  style={{
+                    width: wWidth * 0.35,
+                    height: wHeight * 0.2,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    source={images.employee}
+                    style={{ width: wWidth * 0.25, height: wWidth * 0.25 }}
+                  ></Image>
+                </View>
+                <Text style={{ fontSize: wWidth * 0.04 }}>
+                  Employee Management
+                </Text>
+              </View>
             </View>
           </View>
         </View>
-
-        <NavBar current="home"></NavBar>
       </SafeAreaView>
     </ImageBackground>
   );
 };
 
-export default home;
+export default Home;

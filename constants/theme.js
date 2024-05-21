@@ -1,13 +1,18 @@
+import { Text, Image, Dimensions } from "react-native";
+const wWidth = Dimensions.get("screen").width;
+const wHeight = Dimensions.get("screen").height;
+
 const COLORS = {
   primary: "#312651",
   secondary: "#444262",
   tertiary: "#FF7754",
 
-  gray: "#83829A",
-  gray2: "#C1C0C8",
+  black: "#33313B",
+
+  beige: "#E3C4A8",
 
   white: "#FFFFFF",
-  lightWhite: "#FAFAFC",
+  lightWhite: "#F6F5F5",
 
   doneView: "transparent",
 
@@ -29,6 +34,8 @@ const SIZES = {
   xLarge: 24,
   xxLarge: 32,
 };
+
+const MARGIN = { down: wHeight * 0.13 };
 
 const SHADOWS = {
   small: {
