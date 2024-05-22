@@ -11,15 +11,37 @@ import {
 import { icons, images, COLORS, SHADOWS } from "../constants";
 import { TxtBox, Button } from "../components";
 
+import { auth } from "../firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
-export default function App() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+export default function App({ navigation }) {
+  const [userMail, set_userMail] = useState("");
+  const [password, set_password] = useState("");
+  const [loading, set_loading] = useState(false);
+
+  const handle_login = async () => {
+    set_loading(true);
+    try {
+      const response = await signInWithEmailAndPassword(
+        auth,
+        userMail,
+        password
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+      alert("Sign In Failed", error.message);
+    } finally {
+      set_loading(false);
+    }
+  };
 
   const onLoginPressed = () => {
-    console.warn("Login Pressed");
+    handle_login();
   };
   const onForgotPressed = () => {
     console.warn("Forgot Password Pressed");
@@ -106,15 +128,15 @@ export default function App() {
           }}
         >
           <TxtBox
-            placeholder="Username"
-            value={userName}
-            setValue={setUserName}
+            placeholder="E Mail"
+            value={userMail}
+            setValue={set_userMail}
           />
 
           <TxtBox
             placeholder="Password"
             value={password}
-            setValue={setPassword}
+            setValue={set_password}
             secureTextEntry
           />
         </View>

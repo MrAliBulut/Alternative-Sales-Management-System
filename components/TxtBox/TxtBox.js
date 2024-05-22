@@ -11,8 +11,9 @@ const TxtBox = ({ value, setValue, placeholder, secureTextEntry }) => {
       <TextInput
         style={styles.txt}
         value={value}
-        onChangeText={setValue}
+        onChangeText={(text) => setValue(text)}
         secureTextEntry={secureTextEntry}
+        capi
         placeholder={placeholder}
       />
     </View>

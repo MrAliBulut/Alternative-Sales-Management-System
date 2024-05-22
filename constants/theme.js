@@ -1,4 +1,4 @@
-import { Text, Image, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
@@ -27,8 +27,8 @@ const FONT = {
 };
 
 const SIZES = {
-  xSmall: 10,
-  small: 12,
+  wWidth: wWidth,
+  wHeight: wHeight,
   medium: 16,
   large: 20,
   xLarge: 24,
