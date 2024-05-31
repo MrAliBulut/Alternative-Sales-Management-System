@@ -2,6 +2,8 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { SIZES, SHADOWS } from "../../constants";
 
+const FONT_headerText = { fontSize: SIZES.wWidth * 0.08, fontWeight: "bold" };
+
 const Header = ({ title }) => {
   return (
     <View style={styles.headerView}>
@@ -9,8 +11,6 @@ const Header = ({ title }) => {
     </View>
   );
 };
-
-export default Header;
 
 const styles = StyleSheet.create({
   headerView: {
@@ -20,5 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     ...SHADOWS.medium,
   },
-  text: { fontSize: SIZES.wWidth * 0.08, fontWeight: "bold" },
+  text: { ...FONT_headerText },
 });
+
+export default Header;

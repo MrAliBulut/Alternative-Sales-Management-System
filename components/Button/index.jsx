@@ -1,26 +1,25 @@
-import { Pressable, Text, Dimensions, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import React from "react";
-import { COLORS } from "../../constants";
+import { SIZES, COLORS } from "../../constants";
 
-const wWidth = Dimensions.get("screen").width;
-const wHeight = Dimensions.get("screen").height;
+const FONT_buttonText = { fontSize: SIZES.wWidth * 0.055 };
 
 const Button = ({ onPress, text }) => {
   return (
-    <Pressable onPress={onPress} style={styles.box}>
+    <TouchableOpacity onPress={onPress} style={styles.box}>
       <Text style={styles.txt}>{text}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   box: {
-    width: wWidth * 0.65,
-    height: wWidth * 0.11,
+    width: SIZES.wWidth * 0.65,
+    height: SIZES.wWidth * 0.11,
     backgroundColor: COLORS.deepBlue,
-    borderRadius: wWidth,
+    borderRadius: SIZES.wWidth,
     borderColor: "black",
-    borderWidth: wWidth * 0.001,
+    borderWidth: SIZES.wWidth * 0.001,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
     width: "90%",
     height: "60%",
     backgroundColor: COLORS.doneView,
-    fontSize: wWidth * 0.055,
+    ...FONT_buttonText,
     textAlign: "center",
     color: "white",
   },

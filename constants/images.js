@@ -5,7 +5,11 @@ import graph from "../assets/images/graph.png";
 import offer from "../assets/images/offer.png";
 import rate from "../assets/images/rate.png";
 
-
+const mock_products = {
+  apple: require("../assets/images/mock_products/apple.png"),
+  roast_chicken: require("../assets/images/mock_products/roast_chicken.png"),
+  wine: require("../assets/images/mock_products/wine.png"),
+};
 export default {
   wallpaper,
   myPP,
@@ -13,4 +17,5 @@ export default {
   graph,
   offer,
   rate,
+  mock_products,
 };

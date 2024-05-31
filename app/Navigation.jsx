@@ -1,26 +1,26 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Text, Image, StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { icons, images, COLORS, SHADOWS, SIZES } from "../constants";
+import { icons, COLORS, SHADOWS, SIZES } from "../constants";
 
-import Home from "./Home";
+import Rate from "./Rate"; // To Do
 
-import ProductM from "./Product/ProductM";
-import addProduct from "./Product/addProduct";
+import ProductScreen from "./ProductScreen";
+import Offer from "./OfferScreen";
+import Employee from "./EmployeeScreen";
 
-import OfferM from "./Offer/OfferM";
-import addOffer from "./Offer/addOffer";
-
-import EmployeeM from "./Employee/EmployeeM";
-import addEmployee from "./Employee/addEmployee";
-
-import log_in from "./LogIn";
+import LogIn from "./LogIn";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebaseConfig";
+
+const FONT_tabBarLabelStyle = {
+  fontSize: SIZES.wWidth * 0.032,
+  fontWeight: "bold",
+};
 
 const LogInStack = createNativeStackNavigator();
 const ProductStack = createNativeStackNavigator();
@@ -32,15 +32,15 @@ const Product_Stack = () => {
   return (
     <ProductStack.Navigator initialRouteName={"Product"}>
       <ProductStack.Screen
-        name="ProductM"
-        component={ProductM}
+        name="ProductManagement"
+        component={ProductScreen.Management}
         options={{
           headerShown: false,
         }}
       />
       <ProductStack.Screen
-        name="addProduct"
-        component={addProduct}
+        name="ProductSave"
+        component={ProductScreen.Save}
         options={{
           headerShown: false,
         }}
@@ -57,15 +57,15 @@ const Employee_Stack = () => {
       }}
     >
       <EmployeeStack.Screen
-        name="EmployeeM"
-        component={EmployeeM}
+        name="EmployeeManagement"
+        component={Employee.Management}
         options={{
           headerShown: false,
         }}
       />
       <EmployeeStack.Screen
-        name="addEmployee"
-        component={addEmployee}
+        name="EmployeeSave"
+        component={Employee.Save}
         options={{
           headerShown: false,
         }}
@@ -83,15 +83,15 @@ const Offer_Stack = () => {
       }}
     >
       <OfferStack.Screen
-        name="OfferM"
-        component={OfferM}
+        name="OfferManagement"
+        component={Offer.Management}
         options={{
           headerShown: false,
         }}
       />
       <OfferStack.Screen
-        name="addOffer"
-        component={addOffer}
+        name="OfferSave"
+        component={Offer.Save}
         options={{
           headerShown: false,
         }}
@@ -107,25 +107,34 @@ const Tabs = () => {
       screenOptions={({ route, navigationOptions }) => ({
         tabBarIcon: ({ color, focused, size }) => {
           let icon;
-          if (route.name === "Product") {
-            icon = focused ? icons.product.fill : icons.product.outline;
-          } else if (route.name === "Employee") {
-            icon = focused ? icons.employee.fill : icons.employee.outline;
-          } else if (route.name === "Offer") {
-            icon = focused ? icons.offer.fill : icons.offer.outline;
-          } else if (route.name === "Product_groups") {
-            icon = focused
-              ? icons.product_groups.fill
-              : icons.product_groups.outline;
-          } else if (route.name === "Graph") {
-            icon = focused ? icons.graph.fill : icons.graph.outline;
+          try {
+            switch (route.name) {
+              case "Product": {
+                icon = focused ? icons.product.fill : icons.product.outline;
+                break;
+              }
+              case "Employee": {
+                icon = focused ? icons.employee.fill : icons.employee.outline;
+                break;
+              }
+              case "Offer": {
+                icon = focused ? icons.offer.fill : icons.offer.outline;
+                break;
+              }
+              case "Product_groups": {
+                icon = focused
+                  ? icons.product_groups.fill
+                  : icons.product_groups.outline;
+                break;
+              }
+              case "Graph": {
+                icon = focused ? icons.graph.fill : icons.graph.outline;
+                break;
+              }
+            }
+          } finally {
+            focused ? (color = COLORS.deepBlue) : (color = "black");
           }
-          if (focused) {
-            color = COLORS.deepBlue;
-          } else {
-            color = "black";
-          }
-
           return (
             <Image
               source={icon}
@@ -163,7 +172,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Graph"
-        component={Home}
+        component={Rate}
         options={{
           headerShown: false,
         }}
@@ -171,7 +180,7 @@ const Tabs = () => {
     </Tab.Navigator>
   );
 };
-export default function App() {
+const Root = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -192,14 +201,14 @@ export default function App() {
         ) : (
           <LogInStack.Screen
             name="login"
-            component={log_in}
+            component={LogIn}
             options={{ headerShown: false }}
           />
         )}
       </LogInStack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   tabBar: {
@@ -214,6 +223,8 @@ const styles = StyleSheet.create({
     },
     tabBarActiveTintColor: COLORS.deepBlue,
     tabBarInactiveTintColor: "black",
-    tabBarLabelStyle: { fontSize: SIZES.wWidth * 0.03, fontWeight: "bold" },
+    tabBarLabelStyle: { ...FONT_tabBarLabelStyle },
   },
 });
+
+export default Root;

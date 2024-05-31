@@ -6,10 +6,10 @@ import {
   StyleSheet,
 } from "react-native";
 import React from "react";
-import { images, mock_products, SIZES } from "../../constants";
+import { images, SIZES } from "../../constants";
 import { Product, Header, AddComponent } from "../../components";
 
-const ProductM = ({ navigation }) => {
+const ProductManagement = ({ navigation }) => {
   return (
     <ImageBackground source={images.wallpaper} style={styles.imageBG}>
       <SafeAreaView style={styles.center}>
@@ -18,19 +18,25 @@ const ProductM = ({ navigation }) => {
         <ScrollView style={styles.productsContainer}>
           <View style={styles.center}>
             <Product
-              image={mock_products.roast_chicken}
+              image={images.mock_products.roast_chicken}
               name={"Roast Chicken"}
             ></Product>
-            <Product image={mock_products.wine} name={"Wine"}></Product>
-            <Product image={mock_products.apple} name={"Apple"}></Product>
+            <Product image={images.mock_products.wine} name={"Wine"}></Product>
             <Product
-              image={mock_products.roast_chicken}
+              image={images.mock_products.apple}
+              name={"Apple"}
+            ></Product>
+            <Product
+              image={images.mock_products.roast_chicken}
               name={"Roast Chicken"}
             ></Product>
-            <Product image={mock_products.wine} name={"Wine"}></Product>
-            <Product image={mock_products.apple} name={"Apple"}></Product>
+            <Product image={images.mock_products.wine} name={"Wine"}></Product>
+            <Product
+              image={images.mock_products.apple}
+              name={"Apple"}
+            ></Product>
             <AddComponent
-              page={"addProduct"}
+              page={"ProductSave"}
               navigation={navigation}
             ></AddComponent>
           </View>
@@ -39,8 +45,6 @@ const ProductM = ({ navigation }) => {
     </ImageBackground>
   );
 };
-
-export default ProductM;
 
 const styles = StyleSheet.create({
   center: { alignItems: "center", justifyContent: "center" },
@@ -55,3 +59,5 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
 });
+
+export default ProductManagement;

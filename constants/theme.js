@@ -1,4 +1,5 @@
-import { Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
 const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
@@ -60,4 +61,9 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, SIZES, SHADOWS };
+const Common_Styles = StyleSheet.create({
+  BackgroundSize: { width: wWidth, height: wHeight },
+  Center: { alignItems: "center", justifyContent: "center" },
+});
+
+export { COLORS, FONT, SIZES, SHADOWS, Common_Styles };

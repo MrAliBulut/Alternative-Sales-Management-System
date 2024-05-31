@@ -1,9 +1,9 @@
-import { View, Pressable, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { SIZES, SHADOWS } from "../../constants";
 
 const AddComponent = ({ page, navigation }) => {
-  const onAddProductPressed = () => {
+  const onAddComponentPressed = () => {
     console.log("Navigating to:", page);
     if (navigation && page) {
       navigation.navigate(page);
@@ -12,17 +12,15 @@ const AddComponent = ({ page, navigation }) => {
     }
   };
   return (
-    <Pressable onPress={onAddProductPressed} style={styles.pressable}>
+    <TouchableOpacity onPress={onAddComponentPressed} style={styles.button}>
       <View style={styles.plus1}></View>
       <View style={styles.plus2}></View>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
-export default AddComponent;
-
 const styles = StyleSheet.create({
-  pressable: {
+  button: {
     marginTop: SIZES.wHeight * 0.01,
     marginBottom: SIZES.wHeight * 0.01,
     height: SIZES.wWidth * 0.16,
@@ -49,3 +47,5 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
 });
+
+export default AddComponent;

@@ -1,16 +1,27 @@
-import { ScrollView, Pressable, View, Text, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  TouchableOpacity,
+  View,
+  Text,
+  StyleSheet,
+} from "react-native";
 import { SIZES, COLORS } from "../../constants";
 import React from "react";
 
+const FONT_offerName = { fontSize: SIZES.wWidth * 0.065, fontWeight: "bold" };
+
+const FONT_percentage = { fontSize: SIZES.wWidth * 0.13 };
+
+const FONT_innerText = { fontSize: SIZES.wWidth * 0.04 };
+
+const FONT_affectedProducts = {
+  fontSize: SIZES.wWidth * 0.05,
+  fontWeight: "bold",
+};
+
 const ProductGroup = ({ name }) => {
   return (
-    <View
-      style={{
-        marginTop: "2%",
-        width: "70%",
-        alignItems: "center",
-      }}
-    >
+    <View style={styles.ProductGroupContainer}>
       <Text style={styles.innerText}>{name}</Text>
     </View>
   );
@@ -36,9 +47,12 @@ const Offer = () => {
           <Text style={styles.innerText}>Offer Details</Text>
         </View>
       </ScrollView>
-      <Pressable onPress={onEditOfferPressed} style={styles.buttonContainer}>
+      <TouchableOpacity
+        onPress={onEditOfferPressed}
+        style={styles.buttonContainer}
+      >
         <Text style={styles.buttonText}>Edit Offer</Text>
-      </Pressable>
+      </TouchableOpacity>
       <View style={styles.InnerMargin}>
         <Text style={styles.affectedProducts}>Affected Products</Text>
       </View>
@@ -53,9 +67,12 @@ const Offer = () => {
   );
 };
 
-export default Offer;
-
 const styles = StyleSheet.create({
+  ProductGroupContainer: {
+    marginTop: "2%",
+    width: "70%",
+    alignItems: "center",
+  },
   InnerMargin: {
     marginTop: "5%",
     alignItems: "center",
@@ -70,14 +87,14 @@ const styles = StyleSheet.create({
     borderColor: "black",
     alignItems: "center",
   },
-  offerName: { fontSize: SIZES.wWidth * 0.065, fontWeight: "bold" },
+  offerName: { ...FONT_offerName },
   line: {
     marginTop: "5%",
     width: "80%",
     height: 1,
     backgroundColor: "black",
   },
-  percantage: { fontSize: SIZES.wWidth * 0.13 },
+  percantage: { ...FONT_percentage },
   offerDetailsContainer: {
     marginTop: "5%",
     width: "70%",
@@ -86,7 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
   },
-  innerText: { fontSize: SIZES.wWidth * 0.04 },
+  innerText: { ...FONT_innerText },
   buttonContainer: {
     marginTop: "5%",
     width: SIZES.wWidth * 0.3,
@@ -97,5 +114,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: { color: COLORS.white },
-  affectedProducts: { fontSize: SIZES.wWidth * 0.05, fontWeight: "bold" },
+  affectedProducts: { ...FONT_affectedProducts },
 });
+
+export default Offer;

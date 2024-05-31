@@ -1,15 +1,14 @@
-import { View, TextInput, Dimensions, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
 import React from "react";
-import { COLORS } from "../../constants";
+import { SIZES, COLORS } from "../../constants";
 
-const wWidth = Dimensions.get("screen").width;
-const wHeight = Dimensions.get("screen").height;
+const FONT_NameText = { fontSize: SIZES.wWidth * 0.055 };
 
 const TxtBox = ({ value, setValue, placeholder, secureTextEntry }) => {
   return (
-    <View style={styles.box}>
+    <View style={styles.Container}>
       <TextInput
-        style={styles.txt}
+        style={styles.Text}
         value={value}
         onChangeText={(text) => setValue(text)}
         secureTextEntry={secureTextEntry}
@@ -21,21 +20,21 @@ const TxtBox = ({ value, setValue, placeholder, secureTextEntry }) => {
 };
 
 const styles = StyleSheet.create({
-  box: {
-    width: wWidth * 0.78,
-    height: wWidth * 0.13,
+  Container: {
+    width: SIZES.wWidth * 0.78,
+    height: SIZES.wWidth * 0.13,
     backgroundColor: "customWhite",
-    borderRadius: wWidth,
+    borderRadius: SIZES.wWidth,
     borderColor: "black",
-    borderWidth: wWidth * 0.001,
+    borderWidth: SIZES.wWidth * 0.001,
     justifyContent: "center",
     alignItems: "center",
   },
-  txt: {
-    width: wWidth * 0.7,
-    height: wWidth * 0.07,
+  Text: {
+    width: SIZES.wWidth * 0.7,
+    height: SIZES.wWidth * 0.07,
     backgroundColor: COLORS.doneView,
-    fontSize: wWidth * 0.055,
+    ...FONT_NameText,
     color: "black",
   },
 });

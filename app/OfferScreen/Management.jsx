@@ -6,13 +6,16 @@ import {
   ScrollView,
   StyleSheet,
 } from "react-native";
-import { images, COLORS, SHADOWS, SIZES } from "../../constants";
+import { images, COLORS, SHADOWS, SIZES, Common_Styles } from "../../constants";
 import { Header, Offer, AddComponent } from "../../components";
 
-const OfferM = ({ navigation }) => {
+const OfferManagement = ({ navigation }) => {
   return (
-    <ImageBackground source={images.wallpaper} style={styles.background}>
-      <SafeAreaView style={styles.centers}>
+    <ImageBackground
+      source={images.wallpaper}
+      style={Common_Styles.BackgroundSize}
+    >
+      <SafeAreaView style={Common_Styles.Center}>
         <Header title={"Current Ofers"} />
 
         <ScrollView horizontal={true} style={styles.productContainer}>
@@ -20,7 +23,7 @@ const OfferM = ({ navigation }) => {
           <Offer />
 
           <View style={styles.plusContainer}>
-            <AddComponent page={"addOffer"} navigation={navigation} />
+            <AddComponent page={"OfferSave"} navigation={navigation} />
           </View>
         </ScrollView>
 
@@ -31,8 +34,6 @@ const OfferM = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  background: { width: SIZES.wWidth, height: SIZES.wHeight },
-  center: { alignItems: "center", justifyContent: "center" },
   productContainer: {
     marginBottom: SIZES.wWidth * 0.15,
     height: SIZES.wHeight * 0.63,
@@ -48,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OfferM;
+export default OfferManagement;

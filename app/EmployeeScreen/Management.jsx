@@ -1,29 +1,24 @@
 import {
   ImageBackground,
   View,
-  Text,
-  Dimensions,
   SafeAreaView,
   ScrollView,
   StyleSheet,
 } from "react-native";
 import React from "react";
-import { icons, images, COLORS, SHADOWS, SIZES } from "../../constants";
+import { images, SIZES, Common_Styles } from "../../constants";
 import { AddComponent, Employee, Header } from "../../components";
 
-const wWidth = Dimensions.get("screen").width;
-const wHeight = Dimensions.get("screen").height;
-
-const EmployeeM = ({ navigation }) => {
+const EmployeeManagement = ({ navigation }) => {
   return (
     <ImageBackground
       source={images.wallpaper}
-      style={{ width: wWidth, height: wHeight }}
+      style={Common_Styles.BackgroundSize}
     >
-      <SafeAreaView style={styles.center}>
+      <SafeAreaView style={Common_Styles.Center}>
         <Header title={"Employee Management"} />
         <ScrollView style={styles.EmployeeContainer}>
-          <View style={styles.center}>
+          <View style={Common_Styles.Center}>
             <Employee></Employee>
             <Employee></Employee>
             <Employee></Employee>
@@ -31,15 +26,13 @@ const EmployeeM = ({ navigation }) => {
             <Employee></Employee>
             <Employee></Employee>
             <Employee></Employee>
-            <AddComponent page={"addEmployee"} navigation={navigation} />
+            <AddComponent page={"EmployeeSave"} navigation={navigation} />
           </View>
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>
   );
 };
-
-export default EmployeeM;
 
 const styles = StyleSheet.create({
   EmployeeContainer: {
@@ -49,5 +42,6 @@ const styles = StyleSheet.create({
     height: SIZES.wHeight * 0.565,
     backgroundColor: "transparent",
   },
-  center: { alignItems: "center", justifyContent: "center" },
 });
+
+export default EmployeeManagement;
