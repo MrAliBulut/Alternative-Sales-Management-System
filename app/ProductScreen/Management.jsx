@@ -6,17 +6,17 @@ import {
   StyleSheet,
 } from "react-native";
 import React from "react";
-import { images, SIZES } from "../../constants";
+import { images, SIZES, Common_Styles } from "../../constants";
 import { Product, Header, AddComponent } from "../../components";
 
 const ProductManagement = ({ navigation }) => {
   return (
     <ImageBackground source={images.wallpaper} style={styles.imageBG}>
-      <SafeAreaView style={styles.center}>
+      <SafeAreaView style={Common_Styles.Center}>
         <Header title={"Product Management"} />
 
         <ScrollView style={styles.productsContainer}>
-          <View style={styles.center}>
+          <View style={Common_Styles.Center}>
             <Product
               image={images.mock_products.roast_chicken}
               name={"Roast Chicken"}
@@ -47,8 +47,6 @@ const ProductManagement = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  center: { alignItems: "center", justifyContent: "center" },
-
   imageBG: { width: SIZES.wWidth, height: SIZES.wHeight },
 
   productsContainer: {

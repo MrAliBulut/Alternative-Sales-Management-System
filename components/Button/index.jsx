@@ -1,20 +1,18 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import React from "react";
-import { SIZES, COLORS } from "../../constants";
-
-const FONT_buttonText = { fontSize: SIZES.wWidth * 0.055 };
+import { SIZES, COLORS, Font_Styles } from "../../constants";
 
 const Button = ({ onPress, text }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.box}>
-      <Text style={styles.txt}>{text}</Text>
+    <TouchableOpacity onPress={onPress} style={styles.Container}>
+      <Text style={styles.Text}>{text}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  box: {
-    width: SIZES.wWidth * 0.65,
+  Container: {
+    width: SIZES.wWidth * 0.47,
     height: SIZES.wWidth * 0.11,
     backgroundColor: COLORS.deepBlue,
     borderRadius: SIZES.wWidth,
@@ -23,11 +21,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  txt: {
+  Text: {
     width: "90%",
-    height: "60%",
-    backgroundColor: COLORS.doneView,
-    ...FONT_buttonText,
+    height: "50%",
+    ...Font_Styles.Regular,
     textAlign: "center",
     color: "white",
   },

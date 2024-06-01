@@ -1,16 +1,11 @@
 import { TouchableOpacity, View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
-import { images, icons, SIZES } from "../../constants";
+import { images, icons, SIZES, Font_Styles } from "../../constants";
 
 const ppImSize = SIZES.wWidth * 0.15;
 const settingImSize = SIZES.wWidth * 0.1;
 const innerMargin = 0;
 const cardColor = "rgb(230,230,230)";
-
-const FONT_employeeNameText = {
-  fontSize: SIZES.wWidth * 0.04,
-  fontWeight: "bold",
-};
 
 const Employee = () => {
   const employeePressed = () => {
@@ -50,7 +45,7 @@ const styles = StyleSheet.create({
   },
   EmployeeNameText: {
     marginStart: innerMargin,
-    ...FONT_employeeNameText,
+    ...Font_Styles.Regular,
   },
   margin: { marginStart: innerMargin },
   SettingsContainer: {

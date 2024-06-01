@@ -5,19 +5,9 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
-import { SIZES, COLORS } from "../../constants";
+import { SIZES, COLORS, Font_Styles } from "../../constants";
+//import { Button } from "../../components"; To change Edit Offer button with this later.
 import React from "react";
-
-const FONT_offerName = { fontSize: SIZES.wWidth * 0.065, fontWeight: "bold" };
-
-const FONT_percentage = { fontSize: SIZES.wWidth * 0.13 };
-
-const FONT_innerText = { fontSize: SIZES.wWidth * 0.04 };
-
-const FONT_affectedProducts = {
-  fontSize: SIZES.wWidth * 0.05,
-  fontWeight: "bold",
-};
 
 const ProductGroup = ({ name }) => {
   return (
@@ -87,14 +77,14 @@ const styles = StyleSheet.create({
     borderColor: "black",
     alignItems: "center",
   },
-  offerName: { ...FONT_offerName },
+  offerName: Font_Styles.Header,
   line: {
     marginTop: "5%",
     width: "80%",
     height: 1,
     backgroundColor: "black",
   },
-  percantage: { ...FONT_percentage },
+  percantage: Font_Styles.Huge,
   offerDetailsContainer: {
     marginTop: "5%",
     width: "70%",
@@ -103,7 +93,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
   },
-  innerText: { ...FONT_innerText },
+  innerText: Font_Styles.Tiny,
   buttonContainer: {
     marginTop: "5%",
     width: SIZES.wWidth * 0.3,
@@ -113,8 +103,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  //Special for this component
   buttonText: { color: COLORS.white },
-  affectedProducts: { ...FONT_affectedProducts },
+  affectedProducts: Font_Styles.SubHeader,
 });
 
 export default Offer;

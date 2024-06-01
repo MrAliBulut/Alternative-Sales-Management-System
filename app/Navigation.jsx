@@ -4,7 +4,7 @@ import { Image, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { icons, COLORS, SHADOWS, SIZES } from "../constants";
+import { icons, COLORS, SHADOWS, SIZES, Font_Styles } from "../constants";
 
 import Rate from "./Rate"; // To Do
 
@@ -16,11 +16,6 @@ import LogIn from "./LogIn";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebaseConfig";
-
-const FONT_tabBarLabelStyle = {
-  fontSize: SIZES.wWidth * 0.032,
-  fontWeight: "bold",
-};
 
 const LogInStack = createNativeStackNavigator();
 const ProductStack = createNativeStackNavigator();
@@ -223,7 +218,7 @@ const styles = StyleSheet.create({
     },
     tabBarActiveTintColor: COLORS.deepBlue,
     tabBarInactiveTintColor: "black",
-    tabBarLabelStyle: { ...FONT_tabBarLabelStyle },
+    tabBarLabelStyle: Font_Styles.Tiny,
   },
 });
 

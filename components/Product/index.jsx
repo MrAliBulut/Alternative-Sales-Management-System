@@ -1,17 +1,11 @@
 import { TouchableOpacity, View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
-import { icons, SIZES, SHADOWS } from "../../constants";
+import { icons, SIZES, SHADOWS, Font_Styles } from "../../constants";
 
 const ppImSize = SIZES.wWidth * 0.15;
 const settingImSize = SIZES.wWidth * 0.07;
 const innerMargin = SIZES.wWidth * 0.05;
 const cardColor = "rgb(240,240,240)";
-const img_bg_color = "rgb(230,230,230)";
-
-const FONT_productNameText = {
-  fontSize: SIZES.wWidth * 0.04,
-  fontWeight: "bold",
-};
 
 const Product = ({ image, name }) => {
   const product_pressed = () => {
@@ -62,11 +56,7 @@ const styles = StyleSheet.create({
     width: SIZES.wWidth * 0.35,
     backgroundColor: "transparent",
   },
-  ProductNameText: {
-    marginStart: 0,
-    ...FONT_productNameText,
-    ...SHADOWS.medium,
-  },
+  ProductNameText: Font_Styles.Regular,
   SettingsContainer: { marginEnd: innerMargin, ...SHADOWS.medium },
   SettingsIMG: {
     width: settingImSize,

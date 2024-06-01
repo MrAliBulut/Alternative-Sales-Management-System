@@ -14,21 +14,13 @@ import {
   COLORS,
   SHADOWS,
   SIZES,
+  Font_Styles,
   Common_Styles,
 } from "../constants";
 import { TxtBox, Button } from "../components";
 
 import { auth } from "../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
-//FONTS WILL BE OPTIMIZED. THESE ARE JUST HERE FOR ME TO SEE THEM CLEARLY.
-const FONT_titleText = { fontSize: SIZES.wWidth * 0.13, fontWeight: "700" };
-const FONT_detailsText = {
-  fontSize: SIZES.wWidth * 0.032,
-  textAlign: "center",
-  fontWeight: "400",
-};
-const FONT_mediaText = { fontSize: SIZES.wWidth * 0.04 };
 
 const LogIn = ({ navigation }) => {
   const [userMail, set_userMail] = useState("");
@@ -139,13 +131,10 @@ const styles = StyleSheet.create({
     marginTop: SIZES.wHeight * 0.15,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: COLORS.doneView,
+    backgroundColor: "transparent",
     ...SHADOWS.medium,
   },
-  TitleText: {
-    color: COLORS.deepBlue,
-    ...FONT_titleText,
-  },
+  TitleText: Font_Styles.Huge,
   TitleLine: {
     width: SIZES.wWidth * 0.7,
     height: SIZES.wWidth * 0.0018,
@@ -158,38 +147,35 @@ const styles = StyleSheet.create({
     height: SIZES.wHeight * 0.05,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: COLORS.doneView,
+    backgroundColor: "transparent",
     marginTop: SIZES.wHeight * 0.025,
     ...SHADOWS.medium,
   },
-  DetailsText: {
-    color: COLORS.customBlue,
-    ...FONT_detailsText,
-  },
+  DetailsText: Font_Styles.Tiny,
   TextBoxContainer: {
     height: SIZES.wHeight * 0.2,
-    backgroundColor: COLORS.doneView,
+    backgroundColor: "transparent",
     justifyContent: "space-evenly",
     ...SHADOWS.small,
   },
   ButtonContainer: {
     height: SIZES.wHeight * 0.08,
-    backgroundColor: COLORS.doneView,
+    backgroundColor: "transparent",
     justifyContent: "center",
     ...SHADOWS.medium,
   },
   ForgetContainer: {
-    marginEnd: SIZES.wWidth * 0.33,
     ...SHADOWS.medium,
-    backgroundColor: "",
+    backgroundColor: "transparent",
   },
+  //special for this screen
   ForgetText: {
     color: COLORS.customBlue,
   },
   MediaContainer: {
     height: SIZES.wHeight * 0.05,
     width: SIZES.wWidth * 0.8,
-    backgroundColor: COLORS.doneView,
+    backgroundColor: "transparent",
     marginTop: SIZES.wHeight * 0.04,
     alignItems: "center",
     flexDirection: "row",
@@ -202,7 +188,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.customBlue,
     borderRadius: SIZES.wWidth,
   },
-  MediaText: { ...FONT_mediaText },
+  MediaText: Font_Styles.Regular,
   MediaLineRight: {
     height: "1.5%",
     width: "30%",
@@ -210,7 +196,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.wWidth,
   },
   MediaIconContainer: {
-    backgroundColor: COLORS.doneView,
+    backgroundColor: "transparent",
     width: SIZES.wWidth * 0.4,
     flexDirection: "row",
     justifyContent: "space-between",

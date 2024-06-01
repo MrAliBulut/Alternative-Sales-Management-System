@@ -1,8 +1,6 @@
 import { View, TextInput, StyleSheet } from "react-native";
 import React from "react";
-import { SIZES, COLORS } from "../../constants";
-
-const FONT_NameText = { fontSize: SIZES.wWidth * 0.055 };
+import { SIZES, SHADOWS, Font_Styles } from "../../constants";
 
 const TxtBox = ({ value, setValue, placeholder, secureTextEntry }) => {
   return (
@@ -23,19 +21,21 @@ const styles = StyleSheet.create({
   Container: {
     width: SIZES.wWidth * 0.78,
     height: SIZES.wWidth * 0.13,
-    backgroundColor: "customWhite",
+    backgroundColor: "transparent",
     borderRadius: SIZES.wWidth,
     borderColor: "black",
     borderWidth: SIZES.wWidth * 0.001,
     justifyContent: "center",
     alignItems: "center",
+    ...SHADOWS.small,
   },
   Text: {
-    width: SIZES.wWidth * 0.7,
-    height: SIZES.wWidth * 0.07,
-    backgroundColor: COLORS.doneView,
-    ...FONT_NameText,
-    color: "black",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "transparent",
+    borderRadius: SIZES.wWidth,
+    ...Font_Styles.Regular,
+    padding: SIZES.wWidth * 0.04,
   },
 });
 

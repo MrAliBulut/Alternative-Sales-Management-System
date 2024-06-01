@@ -4,11 +4,7 @@ const wWidth = Dimensions.get("screen").width;
 const wHeight = Dimensions.get("screen").height;
 
 const COLORS = {
-  primary: "#312651",
-  secondary: "#444262",
-  tertiary: "#FF7754",
-
-  black: "#33313B",
+  black: "#000000",
 
   beige: "#E3C4A8",
 
@@ -21,12 +17,6 @@ const COLORS = {
   deepBlue: "#2D687E",
 };
 
-const FONT = {
-  regular: "DMRegular",
-  medium: "DMMedium",
-  bold: "DMBold",
-};
-
 const SIZES = {
   wWidth: wWidth,
   wHeight: wHeight,
@@ -36,7 +26,8 @@ const SIZES = {
   xxLarge: 32,
 };
 
-const MARGIN = { down: wHeight * 0.13 };
+//reccurring margins could be given here like this:
+//const MARGIN = { down: wHeight * 0.13 };
 
 const SHADOWS = {
   small: {
@@ -66,4 +57,41 @@ const Common_Styles = StyleSheet.create({
   Center: { alignItems: "center", justifyContent: "center" },
 });
 
-export { COLORS, FONT, SIZES, SHADOWS, Common_Styles };
+const Font_Styles = {
+  Huge: {
+    fontSize: wWidth * 0.13,
+    fontWeight: "700",
+    color: COLORS.deepBlue,
+    textAlign: "center",
+  },
+  Title: {
+    fontSize: SIZES.wWidth * 0.08,
+    fontWeight: "700",
+    color: COLORS.deepBlue,
+    textAlign: "center",
+  },
+  Header: {
+    fontSize: SIZES.wWidth * 0.065,
+    fontWeight: "500",
+    textAlign: "center",
+  },
+  SubHeader: {
+    fontSize: SIZES.wWidth * 0.05,
+    fontWeight: "500",
+    textAlign: "center",
+  },
+  Tiny: {
+    fontSize: wWidth * 0.032,
+    fontWeight: "400",
+    color: COLORS.black,
+    textAlign: "center",
+  },
+  Regular: {
+    fontSize: wWidth * 0.04,
+    fontWeight: "400",
+    color: COLORS.black,
+    ...SHADOWS.small,
+  },
+};
+
+export { COLORS, Font_Styles, SIZES, SHADOWS, Common_Styles };

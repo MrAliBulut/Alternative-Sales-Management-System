@@ -1,8 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { SIZES, SHADOWS } from "../../constants";
-
-const FONT_headerText = { fontSize: SIZES.wWidth * 0.08, fontWeight: "bold" };
+import { SIZES, Font_Styles } from "../../constants";
 
 const Header = ({ title }) => {
   return (
@@ -18,9 +16,8 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
-    ...SHADOWS.medium,
   },
-  text: { ...FONT_headerText },
+  text: Font_Styles.Title,
 });
 
 export default Header;
