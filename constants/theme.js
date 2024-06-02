@@ -5,7 +5,6 @@ const wHeight = Dimensions.get("screen").height;
 
 const COLORS = {
   black: "#000000",
-
   beige: "#E3C4A8",
 
   white: "#FFFFFF",
