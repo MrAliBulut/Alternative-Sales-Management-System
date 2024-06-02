@@ -3,8 +3,36 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
-      allow read; 
-      allow write: if request.auth != null;
+      allow read, write: if isLoggedIn(); 
+
+      function isLoggedIn(){
+        return .auth != null;
+      }
     }
   }
 }
+
+//Request: Incoming data from the clientside app.
+  //  .auth: Current user information.
+  //  .resource: Data that the user is trying to write to the DB.
+  //  .time: Time the request is submitted.
+  //  .path: Path in the database
+  //  .method: Method the user is trying to execute.
+
+//Resource: Data that already exists in the database.
+  //  request.resource != resource                  in other words:
+  //  incoming resource is not equal to already existing resource.
+
+//https://www.youtube.com/watch?v=nPCwgiUGw9Q&list=PLNFyyGG_pKeTqBZKkubL9VIDM2bEP2aMK&index=5
+
+
+//Exists(path)
+  //to reach and see if the data exists in the database.
+  //exists(/databases/$(database)/documents/users/$(request. auth.uid))
+  //common usage to check if the user exists in the database too.
+//Get(path)
+  //to get the data from the database.
+  //get(/databases/$(database)/documents/users/$(request.auth.uid)).data.admin == true
+  //common usage to check if the user is admin level.
+
+//https://www.youtube.com/watch?v=wSodTKA0GJQ&list=PLNFyyGG_pKeTqBZKkubL9VIDM2bEP2aMK&index=6
